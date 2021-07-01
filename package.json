@@ -1,7 +1,7 @@
 {
   "name": "bundle-test-x-l-k-e",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "yarn run build:umd & yarn run build:es & yarn run build:unpkg",
