@@ -9,7 +9,6 @@ const config = {
       }
     }
   },
-
   productionSourceMap: false
 }
 
