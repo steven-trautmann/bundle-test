@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Inner component with little logic: {{ counter }}</h1>
-    <button @click="addToCounter">add</button>
+    <v-btn color="primary" @click="addToCounter">add</v-btn>
   </div>
 </template>
 
@@ -21,7 +21,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>
