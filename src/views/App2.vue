@@ -7,9 +7,8 @@
 </template>
 
 <script>
-// import { mapActions } from 'vuex'
 import Inner from '@/views/Inner'
-import axios from "axios";
+import store from '@/store/share'
 
 export default {
   name: "App2",
@@ -21,15 +20,11 @@ export default {
       msg: 'alma'
     }
   },
-  methods: {
-    // ...mapActions(['getMessage'])
+  computed: {
   },
   created () {
-    // this.getMessage().then((msg) => {
-    //   this.msg = msg
-    // })
-    axios.get('https://jsonplaceholder.typicode.com/posts/1').then(({ data }) => {
-      this.msg = data.title
+    store.dispatch('getMessage').then((msg) => {
+      this.msg = msg
     })
   }
 };

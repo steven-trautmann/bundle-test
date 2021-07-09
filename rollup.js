@@ -10,6 +10,7 @@ const includePaths = require('rollup-plugin-includepaths');
 const url = require('rollup-plugin-url');
 const alias = require('@rollup/plugin-alias');
 const path = require('path');
+const babel = require('rollup-plugin-babel');
 
 const projectRoot = path.resolve(__dirname)
 
@@ -19,14 +20,15 @@ const build = async () => {
   try {
     const bundle = await rollup({
       input: resolve(__dirname, "src/index.js"),
-      external: ["vue", "vuetify/lib", "axios", "vuetify"],
+      external: ["vue", "vuetify/lib", "axios", "vuetify", "vuex"],
       output: {
         name: pkg.name,
         exports: 'named',
         globals: {
           'axios': 'axios',
           'vue': 'Vue',
-          'vuetify': 'vuetify'
+          'vuetify': 'vuetify',
+          'vuex': 'vuex'
         }
       },
       plugins: [
@@ -52,6 +54,7 @@ const build = async () => {
           extensions: ['.js', '.vue']
         }),
         commonjs(),
+        babel({ runtimeHelpers: true }),
         postcss(),
         buble(),
 
